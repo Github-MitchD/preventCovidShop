@@ -1,9 +1,9 @@
-<?php 
-define("URL", str_replace("index.php", "", (isset($_SERVER["HTTPS"]) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
+<?php
+define("URL", str_replace("index.php", "", (isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on" ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[PHP_SELF]"));
 
 // Products Promotion
 const PROMO = 15/100;
-const PROMO_VALUE = "15%";
+const PROMO_VALUE = "25%";
 
 // Alert management
 const ALERT_SUCCESS = 1;
@@ -19,9 +19,9 @@ function displayAlert($text, $type){
     if($type === ALERT_WARNING) $alertType = "warning";
 
     $txt = '<div class="alert alert-'.$alertType.' alert-dismissible text-center mt-3 mb-2" role="alert">';
-    $txt .= $text;      
+    $txt .= $text;
     $txt .= '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
-    
+
     return $txt;
 }
 
@@ -29,7 +29,7 @@ function displayAlert($text, $type){
 function addImage($file, $dir, $title) {
     if (!file_exists($dir)) mkdir($dir, 0777);
     $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-    
+
     $title = str_replace(' ', '_', $title);
     $title = str_replace("'", '_', $title);
     $title = strtolower($title);
