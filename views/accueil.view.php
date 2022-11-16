@@ -7,6 +7,7 @@ ob_start();
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Bienvenue sur PreventCovidShop</h1>
+            <h2>Version 2 with Slim</h2>
             <p class="lead fw-normal text-white-50 mb-0">Boutique en ligne spécialisée dans
                 les produits pour la prévention de la COVID-19</p>
         </div>
@@ -49,11 +50,11 @@ ob_start();
                         </div>
                     </a>
                 </div>
-            <?php endforeach; ?>            
+            <?php endforeach; ?>
         </div>
         <div class="d-flex">
         <a href="tous_nos_produits" type="button" class="btn btn-warning m-auto">Voir tous nos produits</a>
-        </div>        
+        </div>
     </div>
 </section>
 
