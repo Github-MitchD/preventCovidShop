@@ -48,23 +48,23 @@ function getPageAllProducts()
  * @return void
  */
 function getPageProduct()
-{    
-    if (isset($_GET['id']) && !empty($_GET['id'])) {         
+{
+    if (!empty($_GET['id'])) {
         $id = Securite::secureHTML($_GET['id']);
         $product = getProductFromDB($id);
         if($product) {
             $title = "Page du produit ".$product['name'];
             $description = "Description de la page du produit ".$product['name'];
-            
+
             require_once('views/product.view.php');
         } else {
             $alert = "Houston, on a un problème ! <br/>Cette fiche produit n'existe pas.";
             $alertType = ALERT_DANGER;
             require_once('views/404.php');
-        }        
+        }
     } else {
         throw new Exception("L'Id du produit n'a pas été renseigné !<br>Vous ne pouvez pas accéder à cette page");
-    }    
+    }
 }
 
 /**

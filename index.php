@@ -2,6 +2,7 @@
 require_once('controllers/frontController.php');
 require_once('controllers/backController.php');
 
+
 try {
     if (isset($_GET['page']) && !empty($_GET['page'])) {
         $page = $_GET['page'];

@@ -43,7 +43,7 @@ ob_start();
             <div class="row mb-4 justify-content-center">
                 <div class="col col-md-3">
                     <div class="form-floating">
-                        <input type="number" min="0" max="1000" step="any" class="form-control" id="productPrice" name="productPrice" placeholder="productPrice" required>
+                        <input type="number" min="0"step="any" class="form-control" id="productPrice" name="productPrice" placeholder="productPrice" required>
                         <label for="productPrice">Prix du produit</label>
                     </div>
                 </div>

@@ -1,5 +1,7 @@
 <?php
 ob_start();
+
+$formatter = new NumberFormatter("fr", NumberFormatter::CURRENCY);
 ?>
 
 <!-- Header-->
@@ -44,8 +46,8 @@ ob_start();
                         <tr>
                             <td><?= $product['id'] ?></td>
                             <td><img src="<?= URL ?>/public/images/<?= $product['image_url'] ?>" class="image_tab"></td>
-                            <td><a href="<?= URL ?>voir_le_produit&id=<?= $product['id'] ?>"><?= $product['name'] ?></a></td>
-                            <td><?= $product['price'] ?> €</td>
+                            <td><a href="<?= URL ?>voir_le_produit?id=<?= $product['id'] ?>"><?= $product['name'] ?></a></td>
+                            <td><?= $formatter->formatCurrency($product['price'], "EUR") ?></td>
                             <?php if ($product['quantity'] < 1) { ?>
                                 <td class="text-danger"><?= $product['quantity'] ?></td>
                             <?php } else { ?>
@@ -53,9 +55,9 @@ ob_start();
                             <?php } ?>
                             <td class="">
                                 <?php if ($product['promotion'] == "true") {
-                                    echo "<i class='bi bi-check-lg text-success'></i> " . number_format($product['price'] * (1 - PROMO), 2) . " €";
+                                    echo "<i class='bi bi-check-lg text-success'></i> " . $formatter->formatCurrency($product['price'] * (1 - PROMO), "EUR");
                                 } ?></td>
-                            <td class=""><a href="<?= URL ?>voir_le_produit&id=<?= $product['id'] ?>" type="button" class="btn btn-info m-1"><i class="bi bi-eye"></i></a><a href="modifier_un_produit&id=<?= $product['id'] ?>" type="button" class="btn btn-warning m-1"><i class="bi bi-pencil"></i></a><button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $product['id'] ?>"><i class="bi bi-trash"></i></button>
+                            <td class=""><a href="<?= URL ?>voir_le_produit?id=<?= $product['id'] ?>" type="button" class="btn btn-info m-1"><i class="bi bi-eye"></i></a><a href="modifier_un_produit?id=<?= $product['id'] ?>" type="button" class="btn btn-warning m-1"><i class="bi bi-pencil"></i></a><button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $product['id'] ?>"><i class="bi bi-trash"></i></button>
                             </td>
                         </tr>
                         <!-- Modal Delete Product -->
@@ -71,7 +73,7 @@ ob_start();
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                        <a href="supprimer_produit&id=<?= $product['id'] ?>" type="button" class="btn btn-primary">Oui, supprimer</a>
+                                        <a href="supprimer_produit?id=<?= $product['id'] ?>" type="button" class="btn btn-primary">Oui, supprimer</a>
                                     </div>
                                 </div>
                             </div>

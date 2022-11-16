@@ -12,9 +12,6 @@ class Securite
     {
         // Remove spaces before and after a string
         $string = trim($string);
-        // Remove backslashes from a string
-        $string = stripslashes($string);
-
         return $string;
-    }    
+    }
 }

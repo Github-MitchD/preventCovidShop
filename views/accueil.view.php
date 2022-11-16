@@ -21,7 +21,7 @@ ob_start();
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-4">
             <?php foreach ($products as $product) : ?>
                 <div class="col mb-5">
-                    <a href="<?= URL ?>voir_le_produit&id=<?= $product['id'] ?>">
+                    <a href="<?= URL ?>voir_le_produit?id=<?= $product['id'] ?>">
                         <div class="card h-100">
                             <!-- Promotion badge-->
                             <?php if ($product['promotion'] == "true") {

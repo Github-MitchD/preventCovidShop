@@ -31,7 +31,7 @@ ob_start();
             <!-- Products cards -->
             <?php foreach ($allProducts as $product) : ?>
                 <div class="col mb-5">
-                    <a href="<?= URL ?>voir_le_produit&id=<?= $product['id'] ?>">
+                    <a href="<?= URL ?>voir_le_produit?id=<?= $product['id'] ?>">
                         <div class="card h-100">
                             <!-- Sale badge-->
                             <?php if ($product['promotion'] == "true") {

@@ -8,7 +8,7 @@
     <meta name="description" content="<?= $description ?>" />
     <meta name="author" content="Michel Dufour" />
     <title>PCS - <?= $title ?></title>
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= URL ?>public/img/ico.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/img/ico.png">
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <!-- Bootstrap icons -->
@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <!-- Custom CSS -->
-    <link href="<?= URL ?>public/css/style.css" rel="stylesheet" />
+    <link href="public/css/style.css" rel="stylesheet" />
 </head>
 
 <body>

@@ -44,13 +44,13 @@ ob_start();
             <div class="row mb-4 justify-content-center">
                 <div class="col col-md-3">
                     <div class="form-floating">
-                        <input type="number" min="0" max="1000" step="0.01" class="form-control" id="productPrice" name="productPrice" value="<?= $product['price'] ?>" required>
+                        <input type="number" min="0" step="0.01" class="form-control" id="productPrice" name="productPrice" value="<?= $product['price'] ?>" required>
                         <label for="productPrice">Prix du produit</label>
                     </div>
                 </div>
                 <div class="col col-md-3">
                     <div class="form-floating">
-                    <input type="number" min="0" step="1" value="<?= $product['quantity'] ?>" class="form-control" id="productQuantity" name="productQuantity" required>                        
+                    <input type="number" min="0" step="1" value="<?= $product['quantity'] ?>" class="form-control" id="productQuantity" name="productQuantity" required>
                         <label for="productQuantity">Quantité du produit</label>
                     </div>
                 </div>
