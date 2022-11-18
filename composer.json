@@ -1,4 +1,9 @@
 {
+    "autoload": {
+		"psr-4": {
+            "covidshop\\": "./"
+        }
+	},
     "require": {
         "slim/slim": "4.*",
         "nyholm/psr7": "^1.5",
