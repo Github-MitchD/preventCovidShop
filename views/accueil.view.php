@@ -21,14 +21,14 @@ ob_start();
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-4">
             <?php foreach ($products as $product) : ?>
                 <div class="col mb-5">
-                    <a href="twig URL ?>voir_le_produit?id=<?= $product['id'] ?>">
+                    <a href="<?= URL ?>voir_le_produit/<?= $product['id'] ?>">
                         <div class="card h-100">
                             <!-- Promotion badge-->
                             <?php if ($product['promotion'] == "true") {
                                 echo '<div class="badge bg-warning text-dark position-absolute" style="top: 0.5rem; right: 0.5rem">Promo ' . PROMO_VALUE . '</div>';
                             } ?>
                             <!-- Product image -->
-                            <img class="card-img-top" src="../public/images/<?= $product['image_url'] ?>" alt="<?= $product['name'] ?>" />
+                            <img class="card-img-top" src="images/<?= $product['image_url'] ?>" alt="<?= $product['name'] ?>" />
                             <!-- Product details -->
                             <div class="card-body p-4">
                                 <div class="text-center">

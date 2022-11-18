@@ -18,7 +18,7 @@ ob_start();
         <p class="mb-5"><a href="accueil">Accueil</a> > <a href="tous_nos_produits">Nos produits</a> > <a href="accueil"><?= $product['category'] ?></a> > <?= $product['name'] ?></p>
         <div class="row">
             <div class="col col-md-6">
-                <img class="img-detail-product img-fluid border border-white shadow" src="../public/images/<?= $product['image_url'] ?>" alt="...">
+                <img class="img-detail-product img-fluid border border-white shadow" src="images/<?= $product['image_url'] ?>" alt="...">
             </div>
             <div class="col col-md-6">
                 <!-- Product info stock -->

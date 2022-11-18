@@ -31,14 +31,14 @@ ob_start();
             <!-- Products cards -->
             <?php foreach ($allProducts as $product) : ?>
                 <div class="col mb-5">
-                    <a href="<?= URL ?>voir_le_produit?id=<?= $product['id'] ?>">
+                    <a href="<?= URL ?>voir_le_produit/<?= $product['id'] ?>">
                         <div class="card h-100">
                             <!-- Sale badge-->
                             <?php if ($product['promotion'] == "true") {
                                 echo '<div class="badge bg-warning text-dark position-absolute" style="top: 0.5rem; right: 0.5rem">Promo ' . PROMO_VALUE . '</div>';
                             } ?>
                             <!-- Product image -->
-                            <img class="card-img-top" src="../public/images/<?= $product['image_url'] ?>" alt="..." />
+                            <img class="card-img-top" src="images/<?= $product['image_url'] ?>" alt="..." />
                             <!-- Product details -->
                             <div class="card-body p-4">
                                 <div class="text-center">

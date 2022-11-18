@@ -80,7 +80,7 @@ ob_start();
             <div class="row mb-4 justify-content-center">
                 <div class="col col-md-9">
                     <label for="productDesc">Image actuelle:</label><br>
-                    <img class="shadow-sm img-update-product" src="../public/images/<?= $product['image_url'] ?>">
+                    <img class="shadow-sm img-update-product" src="images/<?= $product['image_url'] ?>">
                 </div>
             </div>
             <div class="text-center">
