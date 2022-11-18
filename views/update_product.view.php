@@ -44,7 +44,7 @@ ob_start();
             <div class="row mb-4 justify-content-center">
                 <div class="col col-md-3">
                     <div class="form-floating">
-                        <input type="number" min="0" step="0.01" class="form-control" id="productPrice" name="productPrice" value="<?= $product['price'] ?>" required>
+                        <input type="number" min="0" max="9999" step="0.01" class="form-control" id="productPrice" name="productPrice" value="<?= $product['price'] ?>" required>
                         <label for="productPrice">Prix du produit</label>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ ob_start();
             <div class="row mb-4 justify-content-center">
                 <div class="col col-md-9">
                     <label for="productDesc">Image actuelle:</label><br>
-                    <img class="shadow-sm img-update-product" src="public/images/<?= $product['image_url'] ?>">
+                    <img class="shadow-sm img-update-product" src="../public/images/<?= $product['image_url'] ?>">
                 </div>
             </div>
             <div class="text-center">
@@ -93,5 +93,5 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-require "views/template.php";
+require __DIR__."/template.php";
 ?>

@@ -1,8 +1,8 @@
 <?php
-require_once "config/config.php";
-require_once "config/Securite.class.php";
-require_once "models/products.dao.php";
-require_once "models/images.dao.php";
+require_once __DIR__."/../config/config.php";
+require_once __DIR__."/../config/Securite.class.php";
+require_once __DIR__."/../models/products.dao.php";
+require_once __DIR__."/../models/images.dao.php";
 
 /**
  * Display Admin Page
@@ -17,7 +17,7 @@ function getPageAdmin()
     $alertType = "";
     $allProducts = getAllProductsFromDB();
 
-    require_once 'views/admin.view.php';
+    require_once (__DIR__.'/../views/admin.view.php');
 }
 
 /**
@@ -36,14 +36,14 @@ function getPageProductAdd()
         isset($_POST['productCategory']) && !empty($_POST['productCategory']) &&
         isset($_POST['productPrice']) && !empty($_POST['productPrice']) &&
         isset($_POST['productDesc']) && !empty($_POST['productDesc']) &&
-        isset($_FILES['productImg']) && !empty($_FILES['productImg']) 
+        isset($_FILES['productImg']) && !empty($_FILES['productImg'])
     ) {
         $productName = Securite::secureHTML($_POST['productName']);
         $productCategory = Securite::secureHTML($_POST['productCategory']);
         $productPrice = Securite::secureHTML($_POST['productPrice']);
         $productDesc = Securite::secureHTML($_POST['productDesc']);
         $productQuantity = Securite::secureHTML($_POST['productQuantity']);
-        
+
         if (isset($_POST['productPromo'])) {
             $productPromo = Securite::secureHTML($_POST['productPromo']);
         } else {
@@ -75,7 +75,7 @@ function getPageProductAdd()
             $alertType = ALERT_DANGER;
         }
     }
-    require_once 'views/add_product.view.php';
+    require_once (__DIR__.'/../views/add_product.view.php');
 }
 
 /**
@@ -134,7 +134,7 @@ function getPageProductUpdate()
             $alertType = ALERT_DANGER;
         }
     }
-    require_once 'views/update_product.view.php';
+    require_once (__DIR__.'/../views/update_product.view.php');
 }
 
 /**
@@ -144,7 +144,7 @@ function getPageProductUpdate()
  */
 function getPageDeleteProduct(){
     $title = "Page de suppression de produit";
-    $description = "Page de gestion des pensionnaires";
+    $description = "Page de suppression du produit";
     $alert = "";
     $alertType = "";
     if (isset($_GET['id']) && !empty($_GET['id'])) {
@@ -159,6 +159,6 @@ function getPageDeleteProduct(){
             $alertType = ALERT_DANGER;
         }
         $allProducts = getAllProductsFromDB();
-        require_once 'views/admin.view.php';
+        require_once (__DIR__.'/../views/admin.view.php');
     }
 }

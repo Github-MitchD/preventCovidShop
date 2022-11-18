@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
     <!-- Custom CSS -->
-    <link href="public/css/style.css" rel="stylesheet" />
+    <link href="../public/css/style.css" rel="stylesheet" />
 </head>
 
 <body>

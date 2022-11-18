@@ -1,8 +1,8 @@
 <?php
-require_once "config/config.php";
-require_once "config/Securite.class.php";
-require_once "models/products.dao.php";
-require_once "models/images.dao.php";
+require_once __DIR__."/../config/config.php";
+require_once __DIR__."/../config/Securite.class.php";
+require_once __DIR__."/../models/products.dao.php";
+require_once __DIR__."/../models/images.dao.php";
 
 /**
  * Function to display the home page
@@ -14,7 +14,7 @@ function getPageAccueil()
     $title = "Page d'accueil";
     $description = "Description de la page d'accueil";
     $products = getHomeProductsFromDB();
-    require_once('views/accueil.view.php');
+    require_once(__DIR__.'/../views/accueil.view.php');
 }
 
 /**
@@ -26,7 +26,7 @@ function getPageAPropos()
 {
     $title = "Page a propos";
     $description = "Description de la page a propos";
-    require_once('views/apropos.view.php');
+    require_once(__DIR__.'/../views/apropos.view.php');
 }
 
 /**
@@ -39,7 +39,7 @@ function getPageAllProducts()
     $title = "Page des produits";
     $description = "Description de la page des produits";
     $allProducts = getAllProductsFromDB();
-    require_once('views/allProducts.view.php');
+    require_once(__DIR__.'/../views/allProducts.view.php');
 }
 
 /**
@@ -56,11 +56,11 @@ function getPageProduct()
             $title = "Page du produit ".$product['name'];
             $description = "Description de la page du produit ".$product['name'];
 
-            require_once('views/product.view.php');
+            require_once(__DIR__.'/../views/product.view.php');
         } else {
             $alert = "Houston, on a un problème ! <br/>Cette fiche produit n'existe pas.";
             $alertType = ALERT_DANGER;
-            require_once('views/404.php');
+            require_once(__DIR__.'/../views/404.php');
         }
     } else {
         throw new Exception("L'Id du produit n'a pas été renseigné !<br>Vous ne pouvez pas accéder à cette page");

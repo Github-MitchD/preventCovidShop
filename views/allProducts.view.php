@@ -38,7 +38,7 @@ ob_start();
                                 echo '<div class="badge bg-warning text-dark position-absolute" style="top: 0.5rem; right: 0.5rem">Promo ' . PROMO_VALUE . '</div>';
                             } ?>
                             <!-- Product image -->
-                            <img class="card-img-top" src="public/images/<?= $product['image_url'] ?>" alt="..." />
+                            <img class="card-img-top" src="../public/images/<?= $product['image_url'] ?>" alt="..." />
                             <!-- Product details -->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -67,5 +67,5 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-require "views/template.php";
+require __DIR__."/template.php";
 ?>
