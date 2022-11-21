@@ -15,10 +15,14 @@ $app->get("$baseUrl/", [ProductController::class, 'index']);
 $app->get("$baseUrl/accueil", [ProductController::class, 'index']);
 $app->get("$baseUrl/a_propos", [PageController::class, 'about']);
 $app->get("$baseUrl/tous_nos_produits", [ProductController::class, 'allProducts']);
+$app->get("$baseUrl/admin", [ProductController::class, 'admin'])->setName("admin");
 $app->get("$baseUrl/voir_le_produit/{id:[0-9]+}", [ProductController::class, 'product']);
-$app->get("$baseUrl/admin", [ProductController::class, 'admin']);
-$app->get("$baseUrl/ajouter_un_produit", [ProductController::class, 'addProduct']);
-$app->get("$baseUrl/modifier_un_produit", [ProductController::class, 'updateProduct']);
-$app->get("$baseUrl/supprimer_produit", [ProductController::class, 'deleteProduct']);
+$app->get("$baseUrl/ajouter_un_produit", [ProductController::class, 'addProductView']);
+$app->post("$baseUrl/ajouter_un_produit", [ProductController::class, 'addProductPost']);
+
+$app->get("$baseUrl/modifier_un_produit/{id:[0-9]+}", [ProductController::class, 'updateProductView']);
+$app->post("$baseUrl/modifier_un_produit/{id:[0-9]+}", [ProductController::class, 'updateProductPut']);
+
+$app->get("$baseUrl/supprimer_produit/{id:[0-9]+}", [ProductController::class, 'deleteProduct']);
 
 $app->run();

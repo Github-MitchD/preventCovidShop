@@ -47,10 +47,9 @@ function getPageAllProducts()
  *
  * @return void
  */
-function getPageProduct()
+function getPageProduct($id)
 {
-    if (!empty($_GET['id'])) {
-        $id = Securite::secureHTML($_GET['id']);
+    if ($id) {
         $product = getProductFromDB($id);
         if($product) {
             $title = "Page du produit ".$product['name'];

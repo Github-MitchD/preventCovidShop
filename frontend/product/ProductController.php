@@ -2,8 +2,10 @@
 
 namespace covidshop\frontend\product;
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+use Securite;
+use Slim\Routing\RouteContext;
+use Slim\Http\{Response, ServerRequest as Request};
+
 
 class ProductController {
 
@@ -25,7 +27,8 @@ class ProductController {
 
 	function product(Request $request, Response $response, $args) {
 		ob_start();
-		getPageProduct();
+		$id = Securite::secureHTML($args['id']);
+		getPageProduct($id);
 		$html = ob_get_clean();
 		$response->getBody()->write($html);
 		return $response;
@@ -38,23 +41,47 @@ class ProductController {
 		$response->getBody()->write($html);
 		return $response;
 	}
-	function addProduct(Request $request, Response $response, $args) {
+
+	function addProductView(Request $request, Response $response, $args) {
 		ob_start();
-		getPageProductAdd();
+		pageProductView();
 		$html = ob_get_clean();
 		$response->getBody()->write($html);
 		return $response;
 	}
-	function updateProduct(Request $request, Response $response, $args) {
+
+	function addProductPost(Request $request, Response $response, $args) {
 		ob_start();
-		getPageProductUpdate();
+		pageProductPost();
+		$html = ob_get_clean();
+		$response->getBody()->write($html);
+		return $response->withJson(array(123));
+	}
+
+	function updateProductView(Request $request, Response $response, $args) {
+		ob_start();
+		$id = Securite::secureHTML($args['id']);
+		pageProductUpdateView($id);
 		$html = ob_get_clean();
 		$response->getBody()->write($html);
 		return $response;
+	}
+	function updateProductPut(Request $request, Response $response, $args) {
+		ob_start();
+		$id = Securite::secureHTML($args['id']);
+		pageProductUpdatePut($id);
+		$html = ob_get_clean();
+
+		$response->getBody()->write($html);
+		$routeContext = RouteContext::fromRequest($request);
+		$adminUrl = $routeContext->getRouteParser()->urlFor("admin"); // IMPORTANT: urlFor() pur récup les URLs associées à mes routes
+		return $response->withRedirect($adminUrl); // redirection HTTP via la lib Slim HTTP (cf. composer.json)
+		//return $response->withHeader("Location", $adminUrl); // redirection HTTP via API PSR-7
 	}
 	function deleteProduct(Request $request, Response $response, $args) {
 		ob_start();
-		getPageDeleteProduct();
+		$id = Securite::secureHTML($args['id']);
+		getPageDeleteProduct($id);
 		$html = ob_get_clean();
 		$response->getBody()->write($html);
 		return $response;
