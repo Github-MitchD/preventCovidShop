@@ -13,11 +13,11 @@ require_once "pdo.php";
  * @param int $idImage
  * @return $idProduct
  */
-function insertProductIntoDB($productName, $productCategory, $productPrice, $productDesc, $productQuantity, $productPromo, $idImage)
+function insertProductIntoDB($productName, $productCategory, $productPrice, $productDesc, $productQuantity, $productPromo/*, $idImage*/)
 {
     $DB = connexionPDO();
-    $req = 'INSERT INTO products (name, category, price, description, quantity, promotion, id_image)
-    values (:name, :category, :price, :description, :quantity,:promotion,:id_image) ';
+    $req = 'INSERT INTO products (name, category, price, description, quantity, promotion)
+    values (:name, :category, :price, :description, :quantity,:promotion) ';
     $stmt = $DB->prepare($req);
     $stmt->bindValue(":name", $productName, PDO::PARAM_STR);
     $stmt->bindValue(":category", $productCategory, PDO::PARAM_STR);
@@ -25,7 +25,7 @@ function insertProductIntoDB($productName, $productCategory, $productPrice, $pro
     $stmt->bindValue(":description", $productDesc, PDO::PARAM_STR);
     $stmt->bindValue(":quantity", $productQuantity, PDO::PARAM_STR);
     $stmt->bindValue(":promotion", $productPromo, PDO::PARAM_STR);
-    $stmt->bindValue(":id_image", $idImage, PDO::PARAM_INT);
+    // $stmt->bindValue(":id_image", $idImage, PDO::PARAM_INT);
     $stmt->execute();
     $idProduct = $DB->lastInsertId();
     $stmt->closeCursor();
@@ -33,7 +33,7 @@ function insertProductIntoDB($productName, $productCategory, $productPrice, $pro
 }
 
 /**
- * Function that allows to recover the 8 best products from DB 
+ * Function that allows to recover the 8 best products from DB
  *
  * @return $products
  */
@@ -71,7 +71,7 @@ function getProductFromDB($id){
  */
 function getAllProductsFromDB(){
     $DB = connexionPDO();
-    $req = "SELECT * FROM products INNER JOIN images WHERE products.id_image = images.image_id ORDER BY products.id DESC";
+    $req = "SELECT * FROM products JOIN images WHERE products.id_image = images.image_id ORDER BY products.id DESC";
     $stmt = $DB->prepare($req);
     $stmt->execute();
     $allProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
