@@ -45,7 +45,7 @@ $formatter = new NumberFormatter("fr", NumberFormatter::CURRENCY);
                     <?php foreach ($allProducts as $product) : ?>
                         <tr>
                             <td><?= $product['id'] ?></td>
-                            <td><img src="<?= URL ?>images/<?= $product['image_url'] ?>" class="image_tab"></td>
+                            <td><img src="images/<?= $product['image_url'] ?>" class="image_tab"></td>
                             <td><a href="<?= URL ?>voir_le_produit/<?= $product['id'] ?>"><?= $product['name'] ?></a></td>
                             <td><?= $formatter->formatCurrency($product['price'], "EUR") ?></td>
                             <?php if ($product['quantity'] < 1) { ?>

@@ -80,7 +80,7 @@ ob_start();
                 <div class="col col-md-9">
                     <div class="mb-3">
                         <label for="productImg" class="form-label">Image du produit : Fichier autorisé jpg, jpeg, png (max 500kb)</label>
-                        <input class="form-control" type="file" id="productImg" name="productImg" required>
+                        <input class="form-control" type="file" id="productImg" name="productImg">
                     </div>
                 </div>
             </div>
